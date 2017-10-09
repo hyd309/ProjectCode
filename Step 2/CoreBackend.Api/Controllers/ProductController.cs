@@ -115,9 +115,32 @@ namespace CoreBackend.Api.Controllers
                 return BadRequest(ModelState);
             }
 
+            if (toPatch.Name == "产品")
+            {
+                ModelState.AddModelError("Name", "产品的名称不可以是'产品'二字");
+            }
+            TryValidateModel(toPatch);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             model.Name = toPatch.Name;
             model.Description = toPatch.Description;
+            model.Price = toPatch.Price;
 
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var model = ProductService.Current.Products.SingleOrDefault(x => x.Id == id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+            ProductService.Current.Products.Remove(model);
             return NoContent();
         }
     }
