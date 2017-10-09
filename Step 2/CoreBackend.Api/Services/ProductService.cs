@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CoreBackend.Api.Dtos;
 
 namespace CoreBackend.Api.Services
@@ -33,7 +30,8 @@ namespace CoreBackend.Api.Services
                             Id = 2,
                             Name = "奶粉"
                         }
-                    }
+                    },
+                    Description = "这是牛奶啊"
                 },
                 new Product
                 {
@@ -52,7 +50,8 @@ namespace CoreBackend.Api.Services
                             Id = 4,
                             Name = "糖"
                         }
-                    }
+                    },
+                    Description = "这是面包啊"
                 },
                 new Product
                 {
@@ -71,7 +70,8 @@ namespace CoreBackend.Api.Services
                             Id = 6,
                             Name = "地下水"
                         }
-                    }
+                    },
+                    Description = "这是啤酒啊"
                 }
             };
         }
