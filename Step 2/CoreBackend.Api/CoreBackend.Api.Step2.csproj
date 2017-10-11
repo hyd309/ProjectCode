@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>CoreBackend.Api</RootNamespace>
+    <AssemblyName>CoreBackend.Api</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
