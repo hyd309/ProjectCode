@@ -40,5 +40,26 @@ namespace CoreBackend.Api.Repositories
         {
             return _myContext.Materials.FirstOrDefault(x => x.ProductId == productId && x.Id == materialId);
         }
+
+        public bool ProductExist(int productId)
+        {
+            return _myContext.Products.Any(x => x.Id == productId);
+        }
+
+        public void AddProduct(Product product)
+        {
+            _myContext.Products.Add(product);
+        }
+
+        public bool Save()
+        {
+            return _myContext.SaveChanges() >= 0;
+        }
+
+        public void DeleteProduct(Product product)
+        {
+            _myContext.Products.Remove(product);
+        }
+
     }
 }

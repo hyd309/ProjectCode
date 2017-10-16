@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using CoreBackend.Api.Dtos;
 using CoreBackend.Api.Entities;
 using CoreBackend.Api.Repositories;
 using CoreBackend.Api.Services;
@@ -41,9 +42,7 @@ namespace CoreBackend.Api
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,
             MyContext myContext)
         {
-            // loggerFactory.AddProvider(new NLogLoggerProvider());
             loggerFactory.AddNLog();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -52,10 +51,18 @@ namespace CoreBackend.Api
             {
                 app.UseExceptionHandler();
             }
-
             myContext.EnsureSeedDataForContext();
-
             app.UseStatusCodePages();
+
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Product, ProductWithoutMaterialDto>();
+                cfg.CreateMap<Product, ProductDto>();
+                cfg.CreateMap<Material, MaterialDto>();
+                cfg.CreateMap<ProductCreation, Product>();
+                cfg.CreateMap<ProductModification, Product>();
+                cfg.CreateMap<Product, ProductModification>();
+            });
 
             app.UseMvc();
         }

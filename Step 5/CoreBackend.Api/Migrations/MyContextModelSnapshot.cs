@@ -35,7 +35,7 @@ namespace CoreBackend.Api.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Material");
+                    b.ToTable("Materials");
                 });
 
             modelBuilder.Entity("CoreBackend.Api.Entities.Product", b =>
@@ -50,7 +50,7 @@ namespace CoreBackend.Api.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<float>("Price")
+                    b.Property<decimal>("Price")
                         .HasColumnType("decimal(8,2)");
 
                     b.HasKey("Id");

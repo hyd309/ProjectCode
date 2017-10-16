@@ -17,7 +17,7 @@ namespace CoreBackend.Api.Services
                 {
                     Id = 1,
                     Name = "牛奶",
-                    Price = 2.5f,
+                    Price = new decimal(2.5),
                     Materials = new List<MaterialDto>
                     {
                         new MaterialDto
@@ -37,7 +37,7 @@ namespace CoreBackend.Api.Services
                 {
                     Id = 2,
                     Name = "面包",
-                    Price = 4.5f,
+                    Price = new decimal(4.5),
                     Materials = new List<MaterialDto>
                     {
                         new MaterialDto
@@ -57,7 +57,7 @@ namespace CoreBackend.Api.Services
                 {
                     Id = 3,
                     Name = "啤酒",
-                    Price = 7.5f,
+                    Price = new decimal(7.5),
                     Materials = new List<MaterialDto>
                     {
                         new MaterialDto
